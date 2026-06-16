@@ -81,11 +81,15 @@ uppercaseElement.addEventListener('click', function(e) {
 
     let teksUpper = teks.toUpperCase();
     inputElement.value = teksUpper;
+
+    inputElement.dispatchEvent(new Event('input'));
 });
 
 lowercaseElement.addEventListener('click', function(e) {
     let teks = inputElement.value;
 
-    let teksUpper = teks.toLowerCase();
-    inputElement.value = teksUpper;
+    let teksLower = teks.toLowerCase();
+    inputElement.value = teksLower;
+
+    inputElement.dispatchEvent(new Event('input'));
 });
