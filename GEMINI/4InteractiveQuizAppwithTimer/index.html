@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+</head>
+<body>
+    <!-- screen container -->
+    <main class="min-h-screen flex justify-center items-center bg-me p-4 bg-[url('./mesh-bg.png')] bg-cover bg-center">
+
+        <div id="notificationOverlay" class="notification-overlay hidden fixed inset-0 z-50 items-center justify-center bg-black/50 backdrop-blur-sm">
+            <!-- notification -->
+            <div class="flex flex-col items-center bg-white/60 p-8 shadow-md rounded-xl ">
+
+                <h3 class="text-gray-800 font-bold text-2xl">Quiz Ended</h3>
+                <p class="mt-6 text-2xl text-gray-800 font-medium">
+                    Skor anda:
+                    <span id="currentQuestionCorrect" >1</span>
+                    <span> / </span>
+                    <span id="totalQuestionsFinally" class="text-gray-500">0</span>
+                </p>
+
+                <button 
+                id="backButton"
+                class="w-full mt-6 text-gray-700 flex items-center justify-center font-bold gap-4 rounded-2xl bg-white/60 backdrop-blur-xl border border-white/30 shadow-sm px-4 py-3 transition-all hover:bg-white/70 hover:shadow-md">
+                Back to questions</button>
+            </div>
+
+        </div>
+
+
+        <!-- phone container -->
+        <div class="w-full min-w-[390px] max-w-[390px] bg-transparent rounded-2xl p-6 flex flex-col items-center border-2 border-gray-100 shadow-xl">
+            <!-- header -->
+            <h1 class="font-bold text-2xl text-gray-800">QUIZSTRAA</h1>
+    
+            <!-- progress and timer container -->
+            <header class="flex justify-between items-center w-full">
+                <!-- progress -->
+                <div class="flex flex-col">
+                    <p class="text-gray-600 font-medium">Progress</p>
+
+                    <p class="font-medium text-2xl text-gray-800">Q. <span class="font-medium text-gray-800" id="currentQuestionNum">0</span> / <span class="font-medium text-gray-500" id="totalQuestionsNum">15</span></p>
+                </div>
+    
+                <!-- timer -->
+                <div class="flex flex-col justify-center items-center">
+
+                    <p class="text-gray-700">Timer</p>
+
+                    <div
+                        id="timerCircle"
+                        class="relative mt-2 h-20 w-20 rounded-full transition-all duration-300"
+                    >
+                        <div class="absolute inset-2 rounded-full bg-white flex items-center justify-center shadow-sm">
+                            <span 
+                            id="timerText" 
+                            class="font-bold text-xl text-gray-800">
+                                30s
+                            </span>
+                        </div>
+                    </div>
+
+                </div>
+
+            </header>
+
+
+            <!-- question-card -->
+            <section class="mt-6 bg-white/60 backdrop-blur-md min-w-full shadow-lg border border-white/40 text-xl flex items-center p-6 font-bold text-gray-800 rounded-2xl">
+                <h2 
+                id="questionText">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, qui?</h2>
+            </section>
+
+            <!-- answer list -->
+            <section class="mt-6 w-full">
+                <ul 
+                id="answerList"
+                class="flex flex-col gap-2">
+                    <!-- <li class="flex-col flex gap-2">
+                        <button class="w-full flex items-center gap-4 rounded-2xl bg-white/60 backdrop-blur-xl border border-white/30 shadow-sm px-4 py-3 transition-all hover:bg-white/80 hover:shadow-md">Answers</button>
+
+                        <button class="w-full flex items-center gap-4 rounded-2xl bg-white/60 backdrop-blur-xl border border-white/30 shadow-sm px-4 py-3 transition-all hover:bg-white/80 hover:shadow-md">Answers</button>
+
+                        <button class="w-full flex items-center gap-4 rounded-2xl bg-white/60 backdrop-blur-xl border border-white/30 shadow-sm px-4 py-3 transition-all hover:bg-white/80 hover:shadow-md">Answers</button>
+
+                        <button class="w-full flex items-center gap-4 rounded-2xl bg-white/60 backdrop-blur-xl border border-white/30 shadow-sm px-4 py-3 transition-all hover:bg-white/80 hover:shadow-md">Answers</button>
+                    </li> -->
+                </ul>
+            </section>
+
+            <!-- bottom area -->
+            <section class="mt-6 mx-auto min-w-full">
+                <!-- progress bar container -->
+                <div class="flex items-center gap-3 mb-6">
+
+                    <div class="bg-gray-200 p-1 w-full rounded-full shadow-md overflow-hidden h-4">
+                        <div
+                            id="progressBar"
+                            class="bg-blue-300 rounded-full h-full w-0 transition-all duration-300">
+                        </div>
+                    </div>
+
+                    <span id="progressText">0%</span>
+
+                </div>
+
+                <button
+                    id="nextButton"
+                    class="w-full text-gray-700 flex items-center justify-center font-bold gap-4 rounded-2xl bg-white/60 backdrop-blur-xl border border-white/30 shadow-sm px-4 py-3 transition-all hover:bg-white/70 hover:shadow-md">
+                    Next Question →
+                </button>
+
+            </section>
+        </div>
+
+    </main>
+    
+    <script type="module" src="main.js"></script>
+</body>
+</html>
